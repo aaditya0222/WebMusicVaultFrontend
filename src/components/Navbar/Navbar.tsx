@@ -81,9 +81,9 @@ const Navbar = () => {
 
   return (
     <>
-      {/* ── Top navbar ── */}
+      {/* ── Top navbar — mobile only (hidden on lg where sidebar takes over) ── */}
       <nav
-        className="bg-[#1a0635] border-b border-purple-500/10 shadow-[0_2px_20px_rgba(0,0,0,0.3)] sticky top-0 z-50 rounded-b-xl"
+        className="lg:hidden bg-[#1a0635] border-b border-purple-500/10 shadow-[0_2px_20px_rgba(0,0,0,0.3)] sticky top-0 z-50 rounded-b-xl"
         ref={navRef}
       >
         <div className="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">

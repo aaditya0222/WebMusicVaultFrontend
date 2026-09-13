@@ -9,6 +9,7 @@ import { useHandleSliderChange } from "@/components/useHandleSliderChange";
 import SongTitleMarquee from "@/components/SongPlayerPanel/SongTitleMarquee";
 import ProgressSlider from "@/components/SongPlayerPanel/ProgressSlider";
 import PanelBottomControls from "@/components/SongPlayerPanel/PanelBottomControls";
+import UpNextSection from "@/components/SongPlayerPanel/UpNextSection";
 import PanelTopControls from "@/components/SongPlayerPanel/PanelTopControls";
 import { setExpandedPanelOpen } from "@/reduxSlices/player.slice";
 import { fadeInExpandedPanel, fadeOutExpandedPanel } from "@/lib/animations";
@@ -162,6 +163,7 @@ const ExpandedPlayer = ({
 
         {/* Player controls */}
         <div className="shrink-0 pt-4 pb-6 px-1">
+          <UpNextSection />
           <PanelTopControls
             audioRef={audioRef}
             downloading={downloading}
@@ -179,6 +181,7 @@ const ExpandedPlayer = ({
             handleSliderChange={handleSliderChange}
           />
           <PanelBottomControls
+            audioRef={audioRef}
             currentTime={currentTime}
             handlePlayPause={handlePlayPause}
             moveToPreviousSong={moveToPreviousSong}

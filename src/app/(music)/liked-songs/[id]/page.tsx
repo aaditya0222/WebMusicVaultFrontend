@@ -128,20 +128,20 @@ const LikedSongsPage = () => {
   return (
     <>
       {/* Header */}
-      <div className="mb-6 bg-white/10 p-6 rounded-lg shadow-lg">
+      <div className="mb-3 sm:mb-6 bg-white/10 px-4 py-3 sm:p-6 rounded-xl sm:rounded-lg shadow-lg">
         <button
           onClick={() => router.push("/playlist")}
           aria-label="Back to Playlists"
-          className="flex items-center gap-2 text-purple-300 hover:text-white transition-colors mb-3"
+          className="flex items-center gap-2 text-purple-300 hover:text-white transition-colors mb-2 sm:mb-3"
         >
           <ArrowLeft className="w-5 h-5" aria-hidden="true" />
-          <span className="text-sm">Back to Playlists</span>
+          <span className="text-sm hidden sm:inline">Back to Playlists</span>
         </button>
         {playlistInfo ? (
           <>
-            <h1 className="text-3xl font-bold break-words leading-tight">{playlistInfo.name}</h1>
+            <h1 className="text-xl sm:text-3xl font-bold break-words leading-tight">{playlistInfo.name}</h1>
             {playlistInfo.description && (
-              <p className="text-gray-300 mt-2">{playlistInfo.description}</p>
+              <p className="text-gray-300 text-sm sm:text-base mt-1 sm:mt-2 line-clamp-1 sm:line-clamp-2">{playlistInfo.description}</p>
             )}
           </>
         ) : errorMsg ? (

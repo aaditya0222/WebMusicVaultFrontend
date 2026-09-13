@@ -170,7 +170,7 @@ const SongList = ({
           aria-label={jumpMode ? "Jump to playing song" : "Scroll to top"}
           title={jumpMode ? "Jump to playing song" : "Scroll to top"}
           className={`fixed ${
-            playingSong ? "bottom-36 lg:bottom-28" : "bottom-24"
+            playingSong ? "bottom-36 lg:bottom-8" : "bottom-24 lg:bottom-6"
           } right-5 z-40 p-3 rounded-full bg-purple-600/30 backdrop-blur-md mobile-no-blur border border-purple-400/30 text-purple-100 shadow-xl hover:bg-purple-500/50 hover:text-white transition-transform active:scale-95 animate-in fade-in zoom-in-95 duration-150`}
         >
           {jumpMode ? (

@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { getSongsLength } from "@/services/song.services";
 import CountUp from "react-countup";
-import Navbar from "@/components/Navbar/Navbar";
 
 const About = () => {
   const [songsLength, setSongsLength] = useState<number | null>(null);
@@ -88,9 +87,10 @@ const About = () => {
 
   return (
     <>
-      <Navbar />
-
-      <div className="min-h-screen p-4 sm:p-6 flex flex-col gap-14 font-sans text-purple-100 bg-[#5520A5]">
+      <div
+        className="h-full overflow-y-auto p-4 sm:p-6 flex flex-col gap-14 font-sans text-purple-100 bg-[#5520A5] [&::-webkit-scrollbar]:hidden"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+      >
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto space-y-6">
           <h1 className="text-4xl sm:text-6xl font-extrabold text-white drop-shadow-xl tracking-tight">
