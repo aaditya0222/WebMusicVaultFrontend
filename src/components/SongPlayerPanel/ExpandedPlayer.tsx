@@ -110,7 +110,7 @@ const ExpandedPlayer = ({
       {/* Content */}
       <div className="relative z-10 flex flex-col h-full min-h-0">
         {/* Top bar */}
-        <div className="flex items-center justify-between px-5 pt-10 pb-2 shrink-0">
+        <div className="flex items-center justify-between px-5 pt-4 pb-2 shrink-0">
           <button
             onClick={() => dispatch(setExpandedPanelOpen(false))}
             className="text-white/70 hover:text-white transition-colors p-1"
