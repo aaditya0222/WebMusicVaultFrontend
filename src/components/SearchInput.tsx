@@ -24,7 +24,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
         onChange={handleChange}
         className="
           w-full p-3 border-2 rounded-lg mb-[14px]
-          bg-white/10 backdrop-blur-md mobile-no-blur text-white
+          bg-white/10 text-white
           border-white/20
           placeholder-purple-200/60
           transition-colors duration-200

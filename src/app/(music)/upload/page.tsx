@@ -59,7 +59,7 @@ export default function UploadPage() {
             </div>
           </div>
 
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl px-5 py-2.5 flex flex-col gap-4 shadow-2xl shadow-black/30">
+          <div className="bg-white/5 border border-white/10 rounded-3xl px-5 py-2.5 flex flex-col gap-4">
             <DropZone
               onFiles={addFiles}
               disabled={isRunning}
@@ -78,7 +78,7 @@ export default function UploadPage() {
           </div>
 
           {songs.length > 0 && (
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl px-5 py-3 flex flex-col sm:flex-row gap-3 shadow-2xl shadow-black/30">
+            <div className="bg-white/5 border border-white/10 rounded-3xl px-5 py-3 flex flex-col sm:flex-row gap-3">
               {isRunning ? (
                 <button
                   onClick={cancelUpload}

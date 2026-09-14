@@ -107,7 +107,6 @@ const SongCard: React.FC<SongCardProps> = ({
       w-6 h-6
       rounded-full
       bg-black/40
-      backdrop-blur-xl mobile-no-blur
       border border-purple-400/70
       shadow-[0_0_12px_rgba(168,85,247,0.45)]
     "
@@ -126,7 +125,7 @@ const SongCard: React.FC<SongCardProps> = ({
       }
     `}
           >
-            <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md mobile-no-blur flex items-center justify-center border border-white/30 shadow-lg">
+            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center border border-white/30 shadow-lg">
               {isPlaying ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

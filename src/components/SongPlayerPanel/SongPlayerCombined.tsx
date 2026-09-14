@@ -49,7 +49,7 @@ const SongPlayerCombined: React.FC = () => {
 
       {/* ── MiniPlayer ── */}
       {playingSong && (
-        <div className="fixed bottom-16 lg:bottom-6 left-0 right-0 lg:left-[calc(50%+128px)] lg:-translate-x-1/2 lg:w-125 z-60 lg:rounded-2xl lg:overflow-hidden lg:shadow-[0_-4px_30px_rgba(0,0,0,0.5)] lg:border lg:border-purple-500/20">
+        <div className="fixed bottom-16 lg:bottom-6 left-0 right-0 lg:left-[calc(50%+128px)] lg:-translate-x-1/2 lg:w-125 z-60 lg:rounded-2xl lg:overflow-hidden lg:border lg:border-purple-500/20">
           <MiniPlayer
             audioRef={audioRef}
             handlePlayPause={() => {

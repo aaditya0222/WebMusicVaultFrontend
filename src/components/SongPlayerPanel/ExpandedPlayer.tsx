@@ -124,7 +124,7 @@ const ExpandedPlayer = ({
         </div>
 
         {/* Cover Art */}
-        <div className="flex-1 flex items-start justify-center px-6 pt-12 pb-12 min-h-0 relative">
+        <div className="flex-1 flex items-start justify-center px-6 py-4 min-h-0 relative">
           <div
             className={cn(
               "relative w-full max-w-sm rounded-lg overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] aspect-square border transition-colors duration-200",
@@ -150,7 +150,6 @@ const ExpandedPlayer = ({
                   w-9 h-9
                   rounded-full
                   bg-black/40
-                  backdrop-blur-xl mobile-no-blur
                   border border-purple-400/70
                   shadow-[0_0_14px_rgba(168,85,247,0.5)]
                 "

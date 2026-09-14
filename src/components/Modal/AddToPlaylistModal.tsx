@@ -117,7 +117,7 @@ const AddToPlaylistModal = () => {
       <div
         ref={panelRef}
         style={{ transform: "translateY(100%)", opacity: 0 }}
-        className="fixed bottom-0 left-0 w-full max-w-5xl mx-auto right-0 bg-gradient-to-tr from-purple-900/95 via-purple-800/95 to-purple-700/95 backdrop-blur-xl border-t border-white/10 rounded-t-2xl shadow-[0_-8px_30px_rgba(0,0,0,0.4)] text-white z-120 py-4 px-4 lg:py-5 lg:px-6 lg:rounded-2xl lg:bottom-6 gpu-hint"
+        className="fixed bottom-0 left-0 w-full max-w-5xl mx-auto right-0 bg-gradient-to-tr from-purple-900/95 via-purple-800/95 to-purple-700/95 border-t border-white/10 rounded-t-2xl shadow-[0_-8px_30px_rgba(0,0,0,0.4)] text-white z-120 py-4 px-4 lg:py-5 lg:px-6 lg:rounded-2xl lg:bottom-6 gpu-hint"
       >
         {/* Drag handle (mobile affordance) */}
         <div className="flex justify-center mb-3 lg:hidden">

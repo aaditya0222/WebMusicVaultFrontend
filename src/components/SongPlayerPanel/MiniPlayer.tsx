@@ -101,7 +101,6 @@ const MiniPlayer = ({
                 w-6 h-6
                 rounded-full
                 bg-black/40
-                backdrop-blur-xl mobile-no-blur
                 border border-purple-400/70
                 shadow-[0_0_12px_rgba(168,85,247,0.45)]
               "

@@ -12,7 +12,7 @@ const SongListSkeleton: React.FC<SongListSkeletonProps> = ({ rows = 5 }) => {
       {Array.from({ length: rows }).map((_, idx) => (
         <div
           key={idx}
-          className="flex items-center gap-4 p-2 rounded-xl animate-pulse bg-white/5 backdrop-blur-md mobile-no-blur"
+          className="flex items-center gap-4 p-2 rounded-xl animate-pulse bg-white/5"
         >
           {/* Play / Pause Circle */}
           <Skeleton className="w-14 h-14 rounded-xl shrink-0" />

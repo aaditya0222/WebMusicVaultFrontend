@@ -127,7 +127,7 @@ const About = () => {
           </div>
 
           <div className="pt-4">
-            <p className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-purple-100 px-4 py-1.5 rounded-full font-semibold text-sm border border-white/10 shadow-lg hover:bg-white/20 transition-all cursor-default">
+            <p className="inline-flex items-center gap-2 bg-white/10 text-purple-100 px-4 py-1.5 rounded-full font-semibold text-sm border border-white/10 hover:bg-white/20 transition-all cursor-default">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               Developed with ❤️ by Aaditya!
             </p>
@@ -136,8 +136,8 @@ const About = () => {
 
         {/* Stats */}
         <div className="max-w-5xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="relative overflow-hidden rounded-3xl bg-white/10 backdrop-blur-md border border-white/10 p-7 shadow-xl">
-            <div className="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-purple-400/20 blur-3xl" />
+          <div className="relative overflow-hidden rounded-3xl bg-white/10 border border-white/10 p-7">
+            <div className="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-purple-400/20 " />
 
             <p className="text-purple-300 text-sm uppercase tracking-[0.2em] font-semibold">
               Music Library
@@ -160,7 +160,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="rounded-3xl bg-white/10 backdrop-blur-md border border-white/10 p-7 shadow-xl">
+          <div className="rounded-3xl bg-white/10 border border-white/10 p-7">
             <p className="text-purple-300 text-sm uppercase tracking-[0.2em] font-semibold">
               Infrastructure
             </p>
@@ -247,7 +247,7 @@ const About = () => {
 
         {/* Tech Stack */}
         <section className="max-w-5xl w-full mx-auto grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-6">
-          <div className="rounded-3xl bg-white/10 backdrop-blur-md border border-white/10 p-6 sm:p-7 shadow-xl">
+          <div className="rounded-3xl bg-white/10 border border-white/10 p-6 sm:p-7">
             <p className="text-purple-300 text-sm uppercase tracking-[0.2em] font-semibold">
               Under the hood
             </p>
@@ -289,7 +289,7 @@ const About = () => {
           </div>
 
           {/* Coming Soon */}
-          <div className="rounded-3xl bg-white/10 backdrop-blur-md border border-white/10 p-6 sm:p-7 shadow-xl">
+          <div className="rounded-3xl bg-white/10 border border-white/10 p-6 sm:p-7">
             <p className="text-purple-300 text-sm uppercase tracking-[0.2em] font-semibold">
               Next up
             </p>

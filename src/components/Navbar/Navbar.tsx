@@ -83,7 +83,7 @@ const Navbar = () => {
     <>
       {/* ── Top navbar — mobile only (hidden on lg where sidebar takes over) ── */}
       <nav
-        className="lg:hidden bg-[#1a0635] border-b border-purple-500/10 shadow-[0_2px_20px_rgba(0,0,0,0.3)] sticky top-0 z-50 rounded-b-xl"
+        className="lg:hidden bg-[#1a0635] border-b border-purple-500/10 sticky top-0 z-50 rounded-b-xl"
         ref={navRef}
       >
         <div className="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
@@ -187,7 +187,7 @@ const Navbar = () => {
           </div>
         )}
 
-        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#1a0635]/95 backdrop-blur-md mobile-no-blur border-t border-purple-500/20 shadow-[0_-2px_20px_rgba(0,0,0,0.4)]">
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#1a0635] border-t border-purple-500/20">
           <div className="flex items-center justify-around px-2 py-2">
             {bottomNavItems.map(({ name, to, icon: Icon }) => {
               const isActive = pathname === to;
