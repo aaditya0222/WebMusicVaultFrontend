@@ -25,13 +25,16 @@ const SkipBtn: React.FC<SkipBtnProps> = ({ toNext, audioRef }) => {
       onClick={handleSkip}
       aria-label={toNext ? "Skip forward 10 seconds" : "Rewind 10 seconds"}
       title={toNext ? "Forward 10s" : "Back 10s"}
-      className="text-white/60 hover:text-white active:scale-95 transition-all p-1"
+      className="text-white hover:text-purple-400 active:scale-95 transition-colors duration-300 flex flex-col items-center"
     >
       {toNext ? (
-        <RotateCw size={22} className="stroke-current" />
+        <RotateCw size={24} className="stroke-current" />
       ) : (
-        <RotateCcw size={22} className="stroke-current" />
+        <RotateCcw size={24} className="stroke-current" />
       )}
+      <span className="text-[9px] font-bold leading-none mt-0.5">
+        {toNext ? "+10" : "-10"}
+      </span>
     </button>
   );
 };

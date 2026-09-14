@@ -4,7 +4,6 @@ import ShuffleBtn from "./ControlButtons/ShuffleBtn";
 import MoveToSong from "./ControlButtons/MoveToSongBtn";
 import PlayPauseSong from "./ControlButtons/PlayPauseSongBtn";
 import RepeatBtn from "./ControlButtons/RepeatBtn";
-import SkipBtn from "./ControlButtons/SkipBtn";
 import { repeatType } from "@/hooks/useAudioPlayer";
 
 interface PanelBottomControlsProps {
@@ -40,9 +39,7 @@ const PanelBottomControls: React.FC<PanelBottomControlsProps> = ({
       >
         <ShuffleBtn shuffle={shuffle} />
         <MoveToSong toNext={false} moveToFunction={moveToPreviousSong} />
-        <SkipBtn toNext={false} audioRef={audioRef} />
         <PlayPauseSong handlePlayPause={handlePlayPause} playing={playing} />
-        <SkipBtn toNext audioRef={audioRef} />
         <MoveToSong moveToFunction={moveToNextSong} />
         <RepeatBtn repeat={repeat} />
       </div>

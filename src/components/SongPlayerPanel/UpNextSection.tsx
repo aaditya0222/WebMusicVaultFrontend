@@ -1,21 +1,27 @@
 "use client";
 import { useState } from "react";
-import { useAppSelector } from "@/store/hook";
-import { ChevronDown, ChevronUp, ListStart } from "lucide-react";
+import { useAppDispatch, useAppSelector } from "@/store/hook";
+import { removeFromUpNext } from "@/reduxSlices/player.slice";
+import { showToast } from "@/hooks/useToast";
+import { ChevronDown, ChevronUp, ListStart, X } from "lucide-react";
 import type { Song } from "@/services/song.services";
 import SongCover from "@/components/ui/SongCover";
 import { MAX_UP_NEXT_QUEUE_SIZE } from "@/reduxSlices/player.slice";
+import { usePathname } from "next/navigation";
 
 // When no Play Next queue is active, show the next songs from the current
 // page's context. With an active queue, show only the queue (max 15).
 const UPCOMING_CONTEXT_LIMIT = 5;
 
-const UpNextSection = () => {
+const UpNextSection = ({ bgColor = "#1a0635" }: { bgColor?: string }) => {
+  const dispatch = useAppDispatch();
   const [expanded, setExpanded] = useState(false);
   const playingSong = useAppSelector((state) => state.player.playingSong);
   const upNextQueue = useAppSelector((state) => state.player.upNextQueue);
   const songsType = useAppSelector((state) => state.song.songsType);
   const songs = useAppSelector((state) => state.song[songsType]);
+  const repeat = useAppSelector((state) => state.player.repeat);
+  const pathname = usePathname();
 
   if (!playingSong) return null;
 
@@ -24,15 +30,20 @@ const UpNextSection = () => {
 
   // Upcoming songs in natural context order, skipping the queue (those are
   // shown separately) and the currently playing song.
+  // In repeat mode (not shuffle page) the player wraps to songs[0] at the end,
+  // so the preview wraps too — keeping the displayed queue in lock-step with playback.
+  const isRepeatMode = repeat === "repeat" && pathname !== "/shuffle";
   const contextUpcoming: Song[] = [];
   if (playingIdx !== -1) {
-    for (
-      let i = playingIdx + 1;
-      i < songs.length && contextUpcoming.length < UPCOMING_CONTEXT_LIMIT;
-      i++
-    ) {
-      const s = songs[i];
-      if (s._id !== playingSong._id && !queuedIds.has(s._id)) {
+    for (let i = 1; i <= UPCOMING_CONTEXT_LIMIT; i++) {
+      let idx = playingIdx + i;
+      if (isRepeatMode) {
+        idx = idx % songs.length;
+      } else if (idx >= songs.length) {
+        break;
+      }
+      const s = songs[idx];
+      if (s && s._id !== playingSong._id && queuedIds.has(s._id) == false) {
         contextUpcoming.push(s);
       }
     }
@@ -51,13 +62,13 @@ const UpNextSection = () => {
   if (!nextSong) return null;
 
   return (
-    <div className="mx-4 mb-1 rounded-2xl bg-white/5 border border-white/10 overflow-hidden">
+    <div className="mx-4 mb-1 rounded-2xl border border-white/10 overflow-hidden" style={{ backgroundColor: bgColor + "dd" }}>
       <button
         type="button"
         onClick={() => setExpanded((e) => !e)}
         aria-expanded={expanded}
         aria-label={expanded ? "Hide play queue" : "Show play queue"}
-        className="w-full flex items-center gap-3 px-3 py-2.5 text-left hover:bg-white/5 transition-colors"
+        className="w-full flex items-center gap-3 px-3 py-2.5 text-left hover:bg-white/10 transition-colors"
       >
         <div className="w-9 h-9 rounded-lg shrink-0 overflow-hidden">
           <SongCover
@@ -81,9 +92,9 @@ const UpNextSection = () => {
           <p className="text-white/40 text-xs truncate">{nextSong.artist}</p>
         </div>
         {expanded ? (
-          <ChevronDown size={16} className="text-white/40 shrink-0" />
+          <ChevronDown size={20} className="text-white/40 shrink-0" />
         ) : (
-          <ChevronUp size={16} className="text-white/40 shrink-0" />
+          <ChevronUp size={20} className="text-white/40 shrink-0" />
         )}
       </button>
 
@@ -115,11 +126,18 @@ const UpNextSection = () => {
                   </p>
                 </div>
                 {fromQueue && (
-                  <ListStart
-                    size={12}
-                    className="text-orange-300 shrink-0"
-                    aria-label="Queued via Play Next"
-                  />
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      dispatch(removeFromUpNext(song._id));
+                      showToast({ message: `Removed "${song.title}" from queue`, type: "success" });
+                    }}
+                    aria-label={`Remove ${song.title} from queue`}
+                    className="text-white/40 hover:text-red-400 transition-colors shrink-0 p-0.5"
+                  >
+                    <X size={18} />
+                  </button>
                 )}
               </li>
             );

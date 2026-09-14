@@ -85,6 +85,9 @@ const playerSlice = createSlice({
     dequeueUpNext: (state) => {
       state.upNextQueue.shift();
     },
+    removeFromUpNext: (state, action: PayloadAction<string>) => {
+      state.upNextQueue = state.upNextQueue.filter((s) => s._id !== action.payload);
+    },
     // Clear the Play Next queue. Keeps playNextContext unchanged so new
     // adds after clearing still go to the same page's queue.
     clearPlayNext: (state) => {
@@ -131,6 +134,7 @@ export const {
   setMiniPanelOpen,
   addToPlayNext,
   dequeueUpNext,
+  removeFromUpNext,
   clearPlayNext,
   setPlayNextContext,
 } = playerSlice.actions;

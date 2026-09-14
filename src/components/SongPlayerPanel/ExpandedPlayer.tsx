@@ -124,7 +124,7 @@ const ExpandedPlayer = ({
         </div>
 
         {/* Cover Art */}
-        <div className="flex-1 flex items-center justify-center px-6 min-h-0">
+        <div className="flex-1 flex items-start justify-center px-6 pt-12 pb-12 min-h-0 relative">
           <div
             className={cn(
               "relative w-full max-w-sm rounded-lg overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] aspect-square border transition-colors duration-200",
@@ -159,11 +159,15 @@ const ExpandedPlayer = ({
               </div>
             )}
           </div>
+
+          {/* UpNext overlays the bottom of the cover art */}
+          <div className="absolute bottom-2 left-4 right-4 z-20">
+            <UpNextSection bgColor={bgColor} />
+          </div>
         </div>
 
         {/* Player controls */}
-        <div className="shrink-0 pt-4 pb-6 px-1">
-          <UpNextSection />
+        <div className="shrink-0 py-2 px-1">
           <PanelTopControls
             audioRef={audioRef}
             downloading={downloading}

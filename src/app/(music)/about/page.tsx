@@ -1,11 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useAppSelector } from "@/store/hook";
 import { getSongsLength } from "@/services/song.services";
 import CountUp from "react-countup";
 
 const About = () => {
   const [songsLength, setSongsLength] = useState<number | null>(null);
+  // When the miniplayer is open it covers the bottom of the page — give the
+  // last content extra clearance so it never hides behind it.
+  const playingSong = useAppSelector((state) => state.player.playingSong);
 
   useEffect(() => {
     document.title = "About | WmV";
@@ -88,7 +92,7 @@ const About = () => {
   return (
     <>
       <div
-        className="h-full overflow-y-auto p-4 sm:p-6 flex flex-col gap-14 font-sans text-purple-100 bg-[#5520A5] [&::-webkit-scrollbar]:hidden"
+        className={`h-full overflow-y-auto ${playingSong ? "px-4 pt-4 pb-32 sm:px-6 sm:pt-6 sm:pb-32" : "p-4 sm:p-6"} flex flex-col gap-14 font-sans text-purple-100 bg-[#5520A5] [&::-webkit-scrollbar]:hidden`}
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {/* Header */}

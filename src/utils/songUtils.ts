@@ -13,10 +13,7 @@ import {
   setTempSortBy,
   setTempSortOrder,
 } from "@/reduxSlices/song.slice";
-import {
-  setExpandedPanelOpen,
-  setMiniPanelOpen,
-} from "@/reduxSlices/player.slice";
+import { setExpandedPanelOpen } from "@/reduxSlices/player.slice";
 const handleSort = (dispatch: AppDispatch, isTemp = false) => {
   if (isTemp) {
     dispatch(setTempSongs([]));
@@ -31,7 +28,6 @@ const handleSort = (dispatch: AppDispatch, isTemp = false) => {
   }
 
   dispatch(setExpandedPanelOpen(false));
-  dispatch(setMiniPanelOpen(false));
 };
 const handleSortBy = (
   sortBy: sortByT,
